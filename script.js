@@ -98,19 +98,24 @@ function showDuel(id1, id2) {
 
         card.innerHTML = `
       ${videoElement}
-      <div class="anime">${music.anime}</div>
-      <div class="song">${music.name}</div>
+      <div class="anime hidden-song">${music.anime}</div>
+      <div class="song hidden-song">${music.name}</div>
     `;
 
         const button = document.createElement('button');
         button.textContent = "PICK";
         button.addEventListener('click', () => {
-            if (isLeft) {
-                pick('left');
-            } else {
-                pick('right');
-            }
-        });
+    // このカード内の曲情報を表示
+    card.querySelector('.anime').classList.remove('hidden-song');
+    card.querySelector('.song').classList.remove('hidden-song');
+
+    if (isLeft) {
+        pick('left');
+    } else {
+        pick('right');
+    }
+});
+
 
         card.appendChild(button);
         return card;
