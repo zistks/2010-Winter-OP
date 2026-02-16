@@ -310,3 +310,8 @@ table th,
 table td {
   text-overflow: ellipsis;
 }
+/* ===== Hidden song info ===== */
+.hidden-song {
+  filter: blur(8px);
+  user-select: none;
+}
