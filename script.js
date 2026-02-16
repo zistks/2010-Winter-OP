@@ -101,6 +101,15 @@ function showDuel(id1, id2) {
       <div class="anime hidden-song">${music.anime}</div>
       <div class="song hidden-song">${music.name}</div>
     `;
+        const animeEl = card.querySelector('.anime');
+const songEl = card.querySelector('.song');
+
+[animeEl, songEl].forEach(el => {
+    el.addEventListener('click', (e) => {
+        e.stopPropagation(); // PICKなどに影響させない
+        el.classList.remove('hidden-song');
+    });
+});
 
         const button = document.createElement('button');
         button.textContent = "PICK";
